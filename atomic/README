@@ -1,0 +1,61 @@
+Idl Data Provider, IDP
+
+The purpose of this library is to provide the atomic data needed 
+for stellar spectroscopy.
+
+The following functions are supported:
+
+partition_function:
+  It has three options, partition functions from Gray, from Wittmann 
+  and from Irwin. The value of PF is returned for the given ionization
+  stage I, element Z and temperature T.
+
+chi:
+  It returns the ionization energy for the given ionization stage I and
+  element Z.
+
+abundance:
+  It returns the logartighmic abundances (A(H) = 12) for the given 
+  element Z
+
+chemeqconst:
+  Returns chemical equilibrium constant for a given diatomic molecule
+  and given temperature.
+
+levels: 
+  Return the information on atomic level for a specified atom and
+  configuration numbers
+
+lines:
+  Return the information on atomic transition for a specified atom and
+  two levels
+
+lande:
+  Computes Lande factor
+
+zeeman:
+  Computes Zeeman splitting
+
+saha:
+  Computes nII*ne/nI for the given atom, lower ionization stage and
+  temperature.
+
+model:
+  Loads model atmosphere with all columns. If it is not complete, then
+  it uses an equilibrium balance to fill the missing columns. Possible
+  models are: FALC (other FAL), VALC, HSRA, HOLMUL. It should return
+  a structure with intuitivly names tags.
+
+teff:
+  Computes teff for a given model atmosphere and a set of the continuum
+  opacities.
+
+kappac:
+  Returns the continuum opacity and the given wavelength for the given
+  temperature and electron density (or pressure or density -> then the
+  electron pressure is computed, used has to decide how).
+
+The routines work for a single value arguments or for the arrays. For 
+those that require some computations (pf, chemeqconst), there are
+two possible outputs - sav file or array.
+
